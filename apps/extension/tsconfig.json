@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", "module": "ESNext", "moduleResolution": "Bundler", "strict": true,
+    "jsx": "react-jsx", "lib": ["ES2022", "DOM"], "types": ["chrome"],
+    "composite": true, "skipLibCheck": true, "noEmit": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "references": [{ "path": "../../packages/core" }]
+}

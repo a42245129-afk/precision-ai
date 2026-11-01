@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Precision AI",
+  "version": "0.1.0",
+  "description": "Get concise, complete responses from supported AI chat websites.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://www.deepseek.com/*",
+    "https://chat.deepseek.com/*",
+    "https://grok.com/*",
+    "https://www.perplexity.ai/*"
+  ],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_popup": "popup.html", "default_title": "Precision AI" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*", "https://claude.ai/*", "https://gemini.google.com/*",
+        "https://www.deepseek.com/*", "https://chat.deepseek.com/*", "https://grok.com/*", "https://www.perplexity.ai/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "apply-precision": {
+      "suggested_key": { "default": "Alt+Shift+P", "mac": "Command+Shift+P" },
+      "description": "Apply Precision AI preferences to the active prompt"
+    }
+  }
+}
